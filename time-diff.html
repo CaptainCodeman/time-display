@@ -1,0 +1,150 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`time-diff`
+Display time differences in human readable format
+
+@demo demo/index.html
+-->
+
+<dom-module id="time-diff">
+  <template>
+    <time datetime$="[[ISOString]]">[[value]]</time>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+
+        is: 'time-diff',
+
+        properties: {
+          /* datetime in ISO 8601 format */
+          datetime: {
+            type: String,
+            value: 'now'
+          },
+
+          /* datetime converted to Javascript Date object */
+          _datetime: Date,
+
+          /* ISO 8601 formatted datetime */
+          ISOString: String,
+
+          /* human readable datetime diff */
+          value: String,
+
+          /* customizable formatting options */
+          format: {
+            type: String,
+            value: {
+              future : 'in %s',
+              past   : '%s ago',
+              n  : 'just now',
+              s  : 'a few seconds',
+              m  : 'a minute',
+              mm : '%d minutes',
+              h  : 'an hour',
+              hh : '%d hours',
+              d  : 'a day',
+              dd : '%d days',
+              M  : 'a month',
+              MM : '%d months',
+              y  : 'a year',
+              yy : '%d years'
+            }
+          }
+        },
+
+        observers: [
+          '_update(datetime, format)'
+        ],
+
+        detached: function() {
+          if (this._timer) {
+            this.cancelAsync(this._timer);
+          }
+        },
+
+        _update: function(datetime, format) {
+          this._datetime = (datetime === 'now') ? this._nowUTC() : fecha.parse(datetime, 'YYYY-MM-DDTHH:mm:ss');
+          this.ISOString = this._datetime.toISOString();
+
+          if (this._timer) {
+            this.cancelAsync(this._timer);
+          }
+          this._nextTick();
+        },
+
+        _nextTick: function() {
+          var delay = this._humanize(this._datetime, this._nowUTC());
+          this._timer = this.async(this._nextTick, delay * 1000);
+        },
+
+        _nowUTC: function() {
+          var now = new Date();
+          return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds()));
+        },
+
+        _humanize: function(from, to) {
+          var thresholds = {
+            n: 6,   // now
+            s: 45,  // seconds to minute
+            m: 45,  // minutes to hour
+            h: 22,  // hours to day
+            d: 26,  // days to month
+            M: 11   // months to year
+          };
+
+          var diff = from - to;
+          var round = Math.round;
+          var seconds = round(Math.abs(diff) / 1000);
+          var minutes = round(seconds / 60);
+          var hours = round(minutes / 60);
+          var days = round(hours / 24);
+          var months = round(days * 4800 / 146097);
+          var years = round(days / 365);
+
+          var a = seconds < thresholds.n && ['n']           ||
+                  seconds < thresholds.s && ['s', seconds]  ||
+                  minutes <= 1           && ['m']           ||
+                  minutes < thresholds.m && ['mm', minutes] ||
+                  hours   <= 1           && ['h']           ||
+                  hours   < thresholds.h && ['hh', hours]   ||
+                  days    <= 1           && ['d']           ||
+                  days    < thresholds.d && ['dd', days]    ||
+                  months  <= 1           && ['M']           ||
+                  months  < thresholds.M && ['MM', months]  ||
+                  years   <= 1           && ['y']           || ['yy', years];
+
+          if (seconds < thresholds.n) {
+            this.value = this.format[a[0]];
+          } else {
+            var type = (diff < 0) ? 'past' : 'future';
+            this.value = this.format[type].replace(/%s/, this.format[a[0]].replace(/%d/, a[1]));
+          }
+
+          diff = Math.abs(diff) / 1000;
+
+          if (diff < 1) {
+            return 1;
+          } else if (diff < 30) {
+            return 5;
+          } else if (diff < 60) {
+            return 10;
+          } else if (diff < 180) {
+            return 30;
+          } else if (diff < 300) {
+            return 60;
+          } else if (diff < 3600) {
+            return 300;
+          } else {
+            return 3600;
+          }
+        }
+      });
+    })();
+  </script>
+</dom-module>

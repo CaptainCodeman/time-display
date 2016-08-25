@@ -1,0 +1,65 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="lib-fecha.html">
+
+<!--
+`time-display`
+Display time in human readable format
+
+@demo demo/index.html
+-->
+
+<dom-module id="time-display">
+  <template>
+    <time datetime$="[[ISOString]]">[[value]]</time>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+
+        is: 'time-display',
+
+        properties: {
+          /* datetime in ISO 8601 format */
+          datetime: {
+            type: String,
+            value: 'now'
+          },
+
+          /* datetime converted to Javascript Date object */
+          _datetime: Date,
+
+          /* ISO 8601 formatted datetime */
+          ISOString: String,
+
+          /* formatted datetime */
+          value: String,
+
+          /* display format string to use */
+          format: {
+            type: String,
+            value: 'default'
+          }
+        },
+
+        observers: [
+          '_update(datetime, format)'
+        ],
+
+        _update: function(datetime, format) {
+          this._datetime = (datetime === 'now') ? this._nowUTC() : fecha.parse(datetime, 'YYYY-MM-DDTHH:mm:ss');
+          this.ISOString = this._datetime.toISOString();
+          this.value = fecha.format(this._datetime, format);
+        },
+
+        _nowUTC: function() {
+          var now = new Date();
+          return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(),  now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds()));
+        }
+      });
+    })();
+  </script>
+</dom-module>

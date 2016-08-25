@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <title>time-display demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+
+    <link rel="import" href="../time-diff.html">
+    <link rel="import" href="../time-display.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+    </style>
+  </head>
+  <body>
+
+    <div class="vertical-section-container centered">
+      <h3>Basic time-display Demo</h3>
+      <demo-snippet>
+        <template>
+          You loaded this page on
+          <time-display format="dddd, MMMM Do, YYYY"></time-display>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>Basic time-diff Demo</h3>
+      <demo-snippet>
+        <template>
+          You loaded this page
+          <time-diff></time-diff>
+        </template>
+      </demo-snippet>
+
+      <h3>Past time-diff Demo</h3>
+      <demo-snippet>
+        <template>
+          This element was created
+          <time-diff datetime="2016-08-23T12:00:00.00"></time-diff>
+        </template>
+      </demo-snippet>
+
+      <h3>Future time-diff Demo</h3>
+      <demo-snippet>
+        <template>
+          The new year is
+          <time-diff id="newyear"></time-diff>
+
+          <script>
+            var ny = document.getElementById("newyear");
+            var now = new Date();
+            var then = new Date(Date.UTC(now.getUTCFullYear() + 1, 0, 0, 0, 0, 0));
+            ny.datetime = then.toISOString();
+          </script>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+</html>
