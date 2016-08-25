@@ -1,3 +1,5 @@
+_[Demo and API docs](http://captaincodeman.github.io/time-display/)_
+
 # time-display
 
 A set of elements for dealing with time in Polymer
