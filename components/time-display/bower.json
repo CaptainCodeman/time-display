@@ -1,0 +1,32 @@
+{
+  "name": "time-display",
+  "version": "0.0.1",
+  "description": "Display time in human readable format",
+  "authors": [
+    "Simon Green <simon@captaincodeman.com>"
+  ],
+  "main": "time.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/github.com/CaptainCodeman/time-display.git"
+  },
+  "homepage": "http://captaincodeman.github.io/time-display/",
+  "keywords": [
+    "polymer",
+    "web-components",
+    "time",
+    "timeago",
+    "relative",
+    "diff"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "fecha": "^2.2.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  }
+}
