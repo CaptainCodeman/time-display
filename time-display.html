@@ -50,7 +50,7 @@ Display time in human readable format
         ],
 
         _update: function(datetime, format) {
-          this._datetime = (datetime === 'now') ? this._nowUTC() : fecha.parse(datetime, 'YYYY-MM-DDTHH:mm:ss');
+          this._datetime = (datetime === 'now') ? this._nowUTC() : new Date(datetime);
           this.ISOString = this._datetime.toISOString();
           this.value = fecha.format(this._datetime, format);
         },

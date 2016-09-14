@@ -69,7 +69,7 @@ Display time differences in human readable format
         },
 
         _update: function(datetime, format) {
-          this._datetime = (datetime === 'now') ? this._nowUTC() : fecha.parse(datetime, 'YYYY-MM-DDTHH:mm:ss');
+          this._datetime = (datetime === 'now') ? this._nowUTC() : new Date(datetime);
           this.ISOString = this._datetime.toISOString();
 
           if (this._timer) {

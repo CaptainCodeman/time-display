@@ -18,12 +18,23 @@
       </template>
     </test-fixture>
 
+    <test-fixture id="datetimeset">
+      <template>
+        <time-display datetime="2016-09-14T14:55:48.000Z"></time-display>
+      </template>
+    </test-fixture>
+
     <script>
       suite('time-display', function() {
 
         test('instantiating the element works', function() {
           var element = fixture('basic');
           assert.equal(element.is, 'time-display');
+        });
+
+        test('datetime is parsed correctly', function() {
+          var element = fixture('datetimeset');
+          assert.equal(element.datetime, element.ISOString);
         });
 
       });
