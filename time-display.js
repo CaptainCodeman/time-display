@@ -2,17 +2,41 @@ import fecha from 'fecha';
 
 export default function() {
   class TimeDisplay extends HTMLElement {
+    static get observedAttributes() {
+      return ['datetime', 'format'];
+    }
+
     connectedCallback() {
-      var datetime = this.getAttribute("datetime");
-      var format = this.getAttribute("format");
+      if (this.getAttribute('datetime') === null) {
+        this.datetime = 'now';
+      }
 
-      datetime = (!datetime || datetime === 'now') ? this.nowUTC() : new Date(datetime);
+      this._time = document.createElement('time');
+      this.appendChild(this._time);
+    }
 
-      var time = document.createElement('time');
-      time.setAttribute('datetime', datetime.toISOString());
-      time.setAttribute('title', fecha.format(datetime, 'ddd, MMM D YYYY, hh:mm:ss'));
-      time.innerText = fecha.format(datetime, format);
-      this.appendChild(time);
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (oldValue === newValue) return;
+      this[name] = newValue;
+    }
+
+    get datetime() { return this._datetime; }
+    set datetime(value) {
+      this._datetime = (!value || value === 'now') ? this.nowUTC() : new Date(value);
+      this.render();
+      this.setAttribute('datetime', this._datetime.toISOString());
+    }
+
+    get format() { return this._format; }
+    set format(value) {
+      this._format = value;
+      this.render();
+      this.setAttribute('format', value);
+    }
+
+    render() {
+      if (!this._datetime || !this._format) return;
+      this.innerText = fecha.format(this._datetime, this._format);
     }
 
     nowUTC() {

@@ -19,25 +19,41 @@ export default function() {
   }
 
   class TimeDiff extends HTMLElement {
-    connectedCallback() {
-      var datetime = this.getAttribute("datetime");
-      this.datetime = (!datetime || datetime === 'now') ? this.nowUTC() : new Date(datetime);
-      this.time = document.createElement('time');
-      this.time.setAttribute('datetime', this.datetime.toISOString());
-      this.time.setAttribute('title', fecha.format(this.datetime, 'ddd, MMM D YYYY, hh:mm:ss'));
-      this.appendChild(this.time);
-      this.nextTick();
+    static get observedAttributes() {
+      return ['datetime'];
     }
 
-    disconnectedCallback() {
-      if (this.timer) {
-        clearTimeout(this.timer);
+    connectedCallback() {
+      this._time = document.createElement('time');
+      this.appendChild(this._time);
+
+      if (this.getAttribute('datetime') === null) {
+        this.datetime = 'now';
       }
     }
 
+    disconnectedCallback() {
+      if (this._timer) {
+        clearTimeout(this._timer);
+      }
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (oldValue === newValue) return;
+      this[name] = newValue;
+    }
+
+    get datetime() { return this._datetime; }
+    set datetime(value) {
+      this._datetime = (!value || value === 'now') ? this.nowUTC() : new Date(value);
+      this.setAttribute('title', fecha.format(this._datetime, 'ddd, MMM D YYYY, hh:mm:ss'));
+      this.setAttribute('datetime', this._datetime.toISOString());
+      this.nextTick();
+    }
+
     nextTick() {
-      var delay = this.humanize(this.datetime, this.nowUTC());
-      this.timer = setTimeout(this.nextTick.bind(this), delay * 1000);
+      var delay = this.humanize(this._datetime, this.nowUTC());
+      this._timer = setTimeout(this.nextTick.bind(this), delay * 1000);
     }
 
     humanize(from, to) {
@@ -71,10 +87,10 @@ export default function() {
               years   <= 1           && ['y']           || ['yy', years];
 
       if (seconds < thresholds.n) {
-        this.time.innerText = format[a[0]];
+        this._time.innerText = format[a[0]];
       } else {
         var type = (diff < 0) ? 'past' : 'future';
-        this.time.innerText = format[type].replace(/%s/, format[a[0]].replace(/%d/, a[1]));
+        this._time.innerText = format[type].replace(/%s/, format[a[0]].replace(/%d/, a[1]));
       }
 
       diff = Math.abs(diff) / 1000;
