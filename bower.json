@@ -1,6 +1,6 @@
 {
   "name": "time-display",
-  "version": "0.0.1",
+  "version": "2.0.0-preview",
   "description": "Display time in human readable format",
   "authors": [
     "Simon Green <simon@captaincodeman.com>"
@@ -20,14 +20,14 @@
     "diff"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.4.0",
-    "fecha": "^2.2.0"
+    "polymer": "Polymer/polymer#^2.0.0-rc.8",
+    "fecha": "^2.3.1"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
-    "web-component-tester": "^4.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+    "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
+    "web-component-tester": "^6.0.0-prerelease.10",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^v1.0.0"
   },
   "license": "MIT"
 }
