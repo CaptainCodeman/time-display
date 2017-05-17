@@ -23,10 +23,14 @@ export default function() {
       return ['datetime'];
     }
 
-    connectedCallback() {
+    constructor() {
+      super();
+
       this._time = document.createElement('time');
       this.appendChild(this._time);
+    }
 
+    connectedCallback() {
       if (this.getAttribute('datetime') === null) {
         this.datetime = 'now';
       }

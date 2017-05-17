@@ -36,7 +36,7 @@ export default function() {
 
     render() {
       if (!this._datetime || !this._format) return;
-      this.innerText = fecha.format(this._datetime, this._format);
+      this._time.innerText = fecha.format(this._datetime, this._format);
     }
 
     nowUTC() {
