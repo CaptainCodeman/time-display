@@ -52,6 +52,10 @@ export default function() {
       this._datetime = (!value || value === 'now') ? this.nowUTC() : new Date(value);
       this.setAttribute('title', fecha.format(this._datetime, 'ddd, MMM D YYYY, hh:mm:ss'));
       this.setAttribute('datetime', this._datetime.toISOString());
+
+      if (this._timer) {
+        clearTimeout(this._timer);
+      }
       this.nextTick();
     }
 

@@ -8,9 +8,9 @@
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../polymer/lib/elements/dom-bind.html">
 
-    <!--<link rel="import" href="../time.html" async>-->
-    <script src="../dist/time.min.js" async></script>
+    <link rel="import" href="../time.html" async>
 
     <style is="custom-style" include="demo-pages-shared-styles">
     </style>
@@ -40,21 +40,6 @@
         <template>
           This element was created
           <time-diff datetime="2016-08-23T12:00:00.00"></time-diff>
-        </template>
-      </demo-snippet>
-
-      <h3>Future time-diff Demo</h3>
-      <demo-snippet>
-        <template>
-          The new year is
-          <time-diff id="newyear"></time-diff>
-
-          <script>
-            var ny = document.getElementById("newyear");
-            var now = new Date();
-            var then = new Date(Date.UTC(now.getUTCFullYear() + 1, 0, 0, 0, 0, 0));
-            ny.datetime = then.toISOString();
-          </script>
         </template>
       </demo-snippet>
     </div>

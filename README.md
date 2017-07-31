@@ -2,15 +2,15 @@ _[Demo and API docs](http://captaincodeman.github.io/time-display/)_
 
 # time-display
 
-A set of elements for dealing with time in Polymer
+A set of Web Components for dealing with time using [fecha](https://github.com/taylorhakes/fecha)
 
-`<time-display>` is an element to display time in human readable format using [fecha](https://github.com/taylorhakes/fecha)
+8Kb minified / 3.2Kb gzipped
+
+`<time-display>` is an element to display time in human readable format
 
 `<time-diff>` is an element to display relative time in human readable format (i.e. "timeago")
 
-For both elements, the datetime should be provided as an ISO 8601 formatted string (UTC) or
-'now' to use the current system datetime. Each user will see the time difference and display
-based on their own local time.
+For both elements, the datetime should be provided as an ISO 8601 formatted string (UTC) or 'now' to use the current system datetime. Each user will see the time difference and display based on their own local time.
 
 Examples:
 

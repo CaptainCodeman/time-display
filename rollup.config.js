@@ -5,7 +5,7 @@ import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-bower-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
-import { minify } from 'uglify-js-harmony';
+import { minify } from 'uglify-es';
 
 export default {
   entry: 'index.js',
@@ -17,7 +17,6 @@ export default {
     commonjs(),
     babel({
       presets: [
-        //[ "es2015", { "modules": false } ]
         [ "es2016" ]
       ],
       plugins: [
@@ -26,7 +25,6 @@ export default {
       runtimeHelpers: true,
       babelrc: false,
     }),
-    // uglify()
     uglify({}, minify)
   ],
 }

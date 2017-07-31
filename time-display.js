@@ -6,13 +6,16 @@ export default function() {
       return ['datetime', 'format'];
     }
 
+    constructor() {
+      super();
+      this._time = document.createElement('time');
+      this.appendChild(this._time);
+    }
+
     connectedCallback() {
       if (this.getAttribute('datetime') === null) {
         this.datetime = 'now';
       }
-
-      this._time = document.createElement('time');
-      this.appendChild(this._time);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {

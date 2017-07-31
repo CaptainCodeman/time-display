@@ -20,13 +20,13 @@
     "diff"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0-rc.8",
     "fecha": "^2.3.1"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
-    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
-    "web-component-tester": "^6.0.0-prerelease.10",
+    "polymer": "Polymer/polymer#^2.0.0",
+    "iron-component-page": "PolymerElements/iron-component-page#3.0.1",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0.0",
+    "web-component-tester": "^6.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^v1.0.0"
   },
   "license": "MIT"

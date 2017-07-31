@@ -1,0 +1,313 @@
+{
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "",
+      "summary": "",
+      "path": "dist/time.min.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "connectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 5048
+            },
+            "end": {
+              "line": 0,
+              "column": 5128
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "attributeChangedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 5128
+            },
+            "end": {
+              "line": 0,
+              "column": 5179
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "t"
+            },
+            {
+              "name": "e"
+            },
+            {
+              "name": "n"
+            }
+          ]
+        },
+        {
+          "name": "render",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 5465
+            },
+            "end": {
+              "line": 0,
+              "column": 5565
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "nowUTC",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 5565
+            },
+            "end": {
+              "line": 0,
+              "column": 5718
+            }
+          },
+          "metadata": {},
+          "params": []
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 0,
+          "column": 4867
+        },
+        "end": {
+          "line": 0,
+          "column": 5719
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "t",
+      "attributes": [
+        {
+          "name": "datetime",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 4934
+            },
+            "end": {
+              "line": 0,
+              "column": 4944
+            }
+          },
+          "metadata": {}
+        },
+        {
+          "name": "format",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 4945
+            },
+            "end": {
+              "line": 0,
+              "column": 4953
+            }
+          },
+          "metadata": {}
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "time-display"
+    },
+    {
+      "description": "",
+      "summary": "",
+      "path": "dist/time.min.js",
+      "properties": [],
+      "methods": [
+        {
+          "name": "connectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 6150
+            },
+            "end": {
+              "line": 0,
+              "column": 6230
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "disconnectedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 6230
+            },
+            "end": {
+              "line": 0,
+              "column": 6292
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "attributeChangedCallback",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 6292
+            },
+            "end": {
+              "line": 0,
+              "column": 6343
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "t"
+            },
+            {
+              "name": "e"
+            },
+            {
+              "name": "n"
+            }
+          ]
+        },
+        {
+          "name": "nextTick",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 6644
+            },
+            "end": {
+              "line": 0,
+              "column": 6760
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "humanize",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 6760
+            },
+            "end": {
+              "line": 0,
+              "column": 7300
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            },
+            {
+              "name": "n"
+            }
+          ]
+        },
+        {
+          "name": "nowUTC",
+          "description": "",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 7300
+            },
+            "end": {
+              "line": 0,
+              "column": 7453
+            }
+          },
+          "metadata": {},
+          "params": []
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 0,
+          "column": 5978
+        },
+        "end": {
+          "line": 0,
+          "column": 7454
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "name": "e",
+      "attributes": [
+        {
+          "name": "datetime",
+          "description": "",
+          "sourceRange": {
+            "start": {
+              "line": 0,
+              "column": 6045
+            },
+            "end": {
+              "line": 0,
+              "column": 6055
+            }
+          },
+          "metadata": {}
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "time-diff"
+    }
+  ]
+}
