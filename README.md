@@ -1,3 +1,6 @@
+[![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/CaptainCodemantime-display)
+[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/CaptainCodemantime-display.svg)](https://vaadin.com/directory/component/CaptainCodemantime-display)
+
 _[Demo and API docs](http://captaincodeman.github.io/time-display/)_
 
 # time-display
